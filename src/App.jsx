@@ -1,44 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='w-full h-screen flex justify-center items-center'>
+        <form className='flex justify-center items-center gap-5' action="">
+            <motion.input
+              className='shadow-lg shadow-slate-500/25 rounded h-10 w-72 px-5 focus:outline-none focus:shadow-blue-400/50'
+              type="text"
+              initial={{width: '18rem'}}
+              whileFocus={{ width: '24rem'}}
+              transition={{ type: 'tween', damping: 10, stiffness: 100 }}
+            />
+          <button className='shadow-lg border border-blue-400 text-blue-600 rounded h-10 px-5 font-bold hover:bg-blue-400 hover:text-white'>
+            Search
+          </button>
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
